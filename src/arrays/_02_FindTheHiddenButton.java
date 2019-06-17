@@ -41,6 +41,7 @@ public class _02_FindTheHiddenButton implements ActionListener{
 		JOptionPane.showMessageDialog(null, "Now that you have entered a number, you must find the hidden button among them.");
 		hiddenButton=randy.nextInt(number2);
 		window.setExtendedState(JFrame.MAXIMIZED_BOTH);
+		window.add(panel);
 		window.setVisible(true);
 		for(int i=0; i<buttons.length; i++) {
 			buttons[i]=new JButton();
@@ -48,12 +49,14 @@ public class _02_FindTheHiddenButton implements ActionListener{
 			panel.add(buttons[i]);
 			if(i==hiddenButton) {
 				buttons[i].setText("ME!");
-			}
+				}
 		}
 			//6. initialize each JButton in the array
 			//7. add the ActionListener to each JButton
 			//8. add each JButton to the panel
-		window.add(panel);
+	
+		window.pack();
+		//window.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		//9 add the panel to the window
 		
 		//10. call setExtendedState(JFrame.MAXIMIZED_BOTH) on your JFrame object.
@@ -84,7 +87,6 @@ public class _02_FindTheHiddenButton implements ActionListener{
 		//17. if the hiddenButton is clicked, tell the user that they win.
 		if(e.getSource()==buttons[hiddenButton]) {
 			JOptionPane.showMessageDialog(null, "You win");
-			window.dispose();
 			start();
 		}else {
 			JOptionPane.showMessageDialog(null, "You L00SE. You are horrible at this game. You are a complete failiure. \n"
